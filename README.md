@@ -1,4 +1,4 @@
-# FASTA-to-BINARY
+# DNA-to-BINARY
 Bash program for DNA sequence to binary format translation
 
 The bash program used simple translation of DNA based to 0 or 1 as follows 
