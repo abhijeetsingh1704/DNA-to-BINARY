@@ -1,7 +1,7 @@
 #!/bin/bash
 #small code to make binary from the DNA fasta sequence
 echo "
-    FASTA_2_BINARY.sh - written by Abhijeet Singh (abhijeetsingh.aau@gmail.com)
+    DNA_2_BINARY.sh - written by Abhijeet Singh (abhijeetsingh.aau@gmail.com)
 
     Translating DNA bases to 0 and 1
 
