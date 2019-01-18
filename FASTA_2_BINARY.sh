@@ -1,5 +1,3 @@
-# **FASTA_to_BINARY**
-
 #!/bin/bash
 #small code to make binary from the DNA fasta sequence
 echo "
