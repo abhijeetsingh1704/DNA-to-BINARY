@@ -5,8 +5,14 @@ echo "
 
     Translating DNA bases to 0 and 1
 
-please provide the name of your fasta file"
-read filename
+"
+
+if [ "$#" -gt 0 ]; then
+	filename=$1
+else
+	echo "please provide the name of your fasta file"
+	read filename
+fi
 fasta_file=filename
 cut -d ' ' -f1 "${!fasta_file}" > "${!fasta_file}"_trimhead
 awk 'BEGIN{RS=">"}NR>1{sub("\n","\t"); gsub("\n",""); print RS$0}' "${!fasta_file}"_trimhead > "${!fasta_file}"_tab
@@ -21,9 +27,9 @@ The codes used for translation are:
                 G=10
 -----------------------------------"
 sed 's/A/00/g;s/T/11/g;s/C/01/g;s/G/10/g' "${!fasta_file}"_tab_col2 > "${!fasta_file}"_tab_col2_2
-paste "${!fasta_file}"_tab_col1 "${!fasta_file}"_tab_col2_2 | column -s $'\n' -t > "${!fasta_file}"_binary.txt
-sed -i 's/\t/\n/g' "${!fasta_file}"_binary.txt
-rm -f "${!fasta_file}"_trimhead "${!fasta_file}"_tab "${!fasta_file}"_tab_col1 "${!fasta_file}"_tab_col2 "${!fasta_file}"_tab_col2_2
+paste "${!fasta_file}"_tab_col1 "${!fasta_file}"_tab_col2_2 | column -s $'\n' -t > "${!fasta_file}"_binary.tmp.txt
+sed 's/\t/\n/g' < "${!fasta_file}"_binary.tmp.txt > "${!fasta_file}"_binary.txt
+rm -f "${!fasta_file}"{_trimhead,_tab,_tab_col1,_tab_col2,_tab_col2_2,_binary.tmp.txt}
 echo "                            ========================="
 echo "your result file is ---->>> ${!fasta_file}_binary.txt"
 echo "                            ========================="
