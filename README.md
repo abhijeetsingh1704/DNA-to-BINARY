@@ -5,3 +5,7 @@ The bash program used simple translation of DNA based to 0 or 1 as follows
 
 A=00, T=11, C=01, G=10
 
+## USAGE
+```
+bash DNA_2_BINARY.sh Filename.fasta
+```
